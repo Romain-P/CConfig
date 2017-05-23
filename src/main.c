@@ -5,10 +5,12 @@
 ** Login   <romain.pillot@epitech.net>
 ** 
 ** Started on  Mon May 22 14:09:17 2017 romain pillot
-** Last update Mon May 22 14:20:56 2017 romain pillot
+** Last update Tue May 23 16:34:52 2017 romain pillot
 */
 
 #include "config.h"
+#include "array.h"
+#include <stdlib.h>
 
 int	main(int ac, char **args)
 {

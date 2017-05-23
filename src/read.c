@@ -1,11 +1,11 @@
 /*
-** gnl.c for  in /home/romain.pillot/gnl
+** read.c for  in /home/romain.pillot/projects/ghoulc/src
 ** 
 ** Made by romain pillot
 ** Login   <romain.pillot@epitech.net>
 ** 
-** Started on  Tue Feb 21 11:35:52 2017 romain pillot
-** Last update Tue May 23 14:28:49 2017 romain pillot
+** Started on  Tue May 23 14:47:01 2017 romain pillot
+** Last update Tue May 23 14:47:02 2017 romain pillot
 */
 
 #include <stdlib.h>
