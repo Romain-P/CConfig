@@ -5,7 +5,7 @@
 ## Login   <romain.pillot@epitech.net>
 ## 
 ## Started on  Thu Apr 27 13:48:20 2017 romain pillot
-## Last update Sun May 28 16:21:34 2017 romain pillot
+## Last update Sun May 28 18:09:13 2017 romain pillot
 ##
 
 CC	=	gcc
@@ -15,6 +15,9 @@ NAME	=	ghoulc
 RM	=	rm -f
 
 SRCS	=	src/main.c		\
+		src/boolean.c		\
+		src/integer.c		\
+		src/string.c		\
 		src/print.c		\
 		src/read.c		\
 		src/config.c		\
@@ -31,7 +34,7 @@ SRCS	=	src/main.c		\
 
 OBJS	=	$(SRCS:.c=.o)
 
-CFLAGS	+=	-Iinc -g3 #-Werror -Wall -Wextra
+CFLAGS	+=	-Iinc -Werror -Wall -Wextra
 
 all:	$(NAME)
 

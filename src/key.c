@@ -5,12 +5,36 @@
 ** Login   <romain.pillot@epitech.net>
 ** 
 ** Started on  Sun May 28 04:05:26 2017 romain pillot
-** Last update Sun May 28 16:11:07 2017 romain pillot
+** Last update Sun May 28 18:05:52 2017 romain pillot
 */
 
 #include <stdlib.h>
 #include "config.h"
 #include "util.h"
+
+t_key	*key_resolve(t_array *array, const char *path)
+{
+  char          **keys;
+  int           i;
+  t_key         *key;
+
+  key = NULL;
+  keys = str_split(str_dupl(path), KEY_SEPARATOR);
+  if (!(key = key_find(array, keys[0])))
+    {
+      fprint("get_boolean: path not found\n");
+      return (false);
+    }
+  i = 0;
+  while (keys[++i])
+    if (!(key = key_find((t_array *) key->value, keys[i])))
+      {
+	fprint("get_boolean: path not found\n");
+	return (false);
+      }
+  TAB_FREE(keys);
+  return (key);
+}
 
 t_key	*key_find(t_array *array, const char *name)
 {
@@ -35,4 +59,14 @@ t_key	*key_create(const char *name, t_keytype type, void *value)
   key->boolean = false;
   key->integer = -1;
   return (key);
+}
+
+t_key	*get_key(t_config *config, const char *path)
+{
+  return (key_resolve(config->keys, path));
+}
+
+t_key	*keyget_key(t_key *key, const char *path)
+{
+  return (key_resolve((t_array *) key->value, path));
 }

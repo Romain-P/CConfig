@@ -5,7 +5,7 @@
 ** Login   <romain.pillot@epitech.net>
 ** 
 ** Started on  Mon May 22 16:07:46 2017 romain pillot
-** Last update Sun May 28 17:06:06 2017 romain pillot
+** Last update Sun May 28 18:06:28 2017 romain pillot
 */
 
 #ifndef CONFIG_H_
@@ -41,6 +41,24 @@ typedef struct	s_config
   const char	*name;
   t_array	*keys;
 }		t_config;
+
+t_key		*get_key(t_config *config, const char *path);
+
+t_key		*keyget_key(t_key *key, const char *path);
+
+char		*get_string(t_config *config, const char *path);
+
+char		*keyget_string(t_key *key, const char *path);
+
+int		get_integer(t_config *config, const char *path);
+
+int		keyget_integer(t_key *key, const char *path);
+
+bool		get_boolean(t_config *config, const char *path);
+
+bool		keyget_boolean(t_key *key, const char *path);
+
+t_key		*key_resolve(t_array *array, const char *path);
 
 t_key		*key_find(t_array *array, const char *name);
 
