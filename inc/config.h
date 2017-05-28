@@ -5,7 +5,7 @@
 ** Login   <romain.pillot@epitech.net>
 ** 
 ** Started on  Mon May 22 16:07:46 2017 romain pillot
-** Last update Sun May 28 03:14:52 2017 romain pillot
+** Last update Sun May 28 17:06:06 2017 romain pillot
 */
 
 #ifndef CONFIG_H_
@@ -32,12 +32,22 @@ typedef struct	s_key
   char		*name;
   t_keytype	type;
   void		*value;
+  bool		boolean;
+  int		integer;
 }		t_key;
 
 typedef struct	s_config
 {
-  char		*name;
+  const char	*name;
   t_array	*keys;
 }		t_config;
+
+t_key		*key_find(t_array *array, const char *name);
+
+t_key		*key_create(const char *name, t_keytype type, void *value);
+
+t_config	*config_load(const char *file_name);
+
+void		config_destroy(t_config *config);
 
 #endif /* !CONFIG_H_ */

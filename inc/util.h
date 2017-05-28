@@ -5,7 +5,7 @@
 ** Login   <romain.pillot@epitech.net>
 ** 
 ** Started on  Tue May 23 14:02:04 2017 romain pillot
-** Last update Sun May 28 03:31:45 2017 romain pillot
+** Last update Sun May 28 16:21:23 2017 romain pillot
 */
 
 #ifndef UTIL_H_
@@ -20,6 +20,10 @@ void	tab_free(void ***ptr);
 # define FREE(PTR)      (safe_free((void **) &(PTR)))
 
 # define TAB_FREE(PTR)	(tab_free((void ***) &(PTR)))
+
+int	nbr_parsestring(const char *str);
+
+bool	str_equals(const char *a, const char *b);
 
 int	str_length(const char *str);
 
