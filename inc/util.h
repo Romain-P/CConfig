@@ -5,13 +5,31 @@
 ** Login   <romain.pillot@epitech.net>
 ** 
 ** Started on  Tue May 23 14:02:04 2017 romain pillot
-** Last update Tue May 23 14:29:09 2017 romain pillot
+** Last update Sun May 28 03:31:45 2017 romain pillot
 */
 
 #ifndef UTIL_H_
 # define UTIL_H_
 
 # include <stdbool.h>
+
+void	safe_free(void **ptr);
+
+void	tab_free(void ***ptr);
+
+# define FREE(PTR)      (safe_free((void **) &(PTR)))
+
+# define TAB_FREE(PTR)	(tab_free((void ***) &(PTR)))
+
+int	str_length(const char *str);
+
+char	*str_dupl(const char *str);
+
+int	str_countchar(const char *str, const char delimiter);
+
+char	*str_reduce(char *str, const char delimiter);
+
+char	**str_split(char *str, const char delimiter);
 
 bool	print(const char *str);
 

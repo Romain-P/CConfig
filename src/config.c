@@ -5,7 +5,7 @@
 ** Login   <romain.pillot@epitech.net>
 ** 
 ** Started on  Tue May 23 13:46:43 2017 romain pillot
-** Last update Tue May 23 14:44:54 2017 romain pillot
+** Last update Sun May 28 03:33:10 2017 romain pillot
 */
 
 #include <fcntl.h>
@@ -13,6 +13,7 @@
 #include <unistd.h>
 #include "config.h"
 #include "util.h"
+#include "array.h"
 
 static bool	open_file(const char *file_name, int *fd)
 {
@@ -23,7 +24,14 @@ static bool	open_file(const char *file_name, int *fd)
 
 static void	parse_line(t_config *config, const char *str)
 {
+  char		**data;
+  char		**keys;
+
+  data = str_split(str_dupl(str), VALUE_SEPARATOR);
+  keys = str_split(data[0], KEY_SEPARATOR);
   
+  TAB_FREE(data);
+  FREE(keys);
 }
 
 t_config	*config_load(const char *file_name)
@@ -31,7 +39,11 @@ t_config	*config_load(const char *file_name)
   t_config	*config;
   int		fd;
   char		*str;
+  t_array	*array;
+  int		index;
 
+  index = 0;
+  array = array_create();
   if (!open_file(file_name, &fd) ||
       !(config = malloc(sizeof(t_config))))
     return (NULL);
