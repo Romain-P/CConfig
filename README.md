@@ -25,7 +25,7 @@ Simple config parser. Follows Epitech Norm (except the main example).
     //...
     
     t_key *objects = get_key(config, "objects");
-    t_array *array = (t_array *) key->value;
+    t_array *array = (t_array *) objects->value;
     for (int i = 0; i < array->length; i++)
       {
         t_key *key = (t_key *key) array->values[i];
