@@ -2,18 +2,18 @@
 Simple config parser. Follows Epitech Norm (except the main example).
 
 **config.conf**
-> #database
-> properties.database.name: data
-> properties.database.user: root
-> properties.database.pass: 
-> properties.database.host: localhost
-> #objects
-> objects.a.name: test
-> objects.a.valid: true
-> objects.a.age: 10
-> objects.b.name: test2
-> objects.b.valid: yes
-> objects.b.age: -1
+
+    properties.database.name: data
+    properties.database.user: root
+    properties.database.pass: 
+    properties.database.host: localhost
+
+    objects.a.name: test
+    objects.a.valid: true
+    objects.a.age: 10
+    objects.b.name: test2
+    objects.b.valid: yes
+    objects.b.age: -1
 
 **main.c**  
 
