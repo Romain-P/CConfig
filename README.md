@@ -11,6 +11,7 @@ Simple config parser. Follows Epitech Norm (except the main example).
     objects.a.name: test
     objects.a.valid: true
     objects.a.age: 10
+    
     objects.b.name: test2
     objects.b.valid: yes
     objects.b.age: -1
