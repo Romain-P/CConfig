@@ -5,7 +5,7 @@
 ** Login   <romain.pillot@epitech.net>
 ** 
 ** Started on  Tue May 23 13:46:43 2017 romain pillot
-** Last update Tue May 30 14:30:54 2017 romain pillot
+** Last update Tue May 30 19:34:04 2017 romain pillot
 */
 
 #include <fcntl.h>
@@ -77,16 +77,19 @@ static void	parse_line(t_config *config, const char *str)
   t_key		*key;
 
   pair = str_split(str_dupl(str), VALUE_SEPARATOR);
-  keys = str_split(pair[0], KEY_SEPARATOR);
-  if (!(key = key_find(config->keys, keys[0])))
+  if (pair && pair[0] && pair[1])
     {
-      key = key_create(keys[0], UNDEFINED, NULL);
-      array_add(config->keys, key);
+      keys = str_split(pair[0], KEY_SEPARATOR);
+      if (!(key = key_find(config->keys, keys[0])))
+	{
+	  key = key_create(keys[0], UNDEFINED, NULL);
+	  array_add(config->keys, key);
+	}
+      i = 0;
+      while (keys[++i])
+	key = apply_strategy(key, keys, i);
+      parse_value(key, str_reduce(pair[1], ' '));
     }
-  i = 0;
-  while (keys[++i])
-    key = apply_strategy(key, keys, i);
-  parse_value(key, str_reduce(pair[1], ' '));
   TAB_FREE(pair);
   FREE(keys);
 }
@@ -104,7 +107,7 @@ t_config	*config_load(const char *file_name)
   config->keys = array_create();
   while ((str = str_reduce(scan_line(fd), ' ')))
     {
-      if (*str)
+      if (*str && str_contains(str, (char [2]){VALUE_SEPARATOR, 0}))
 	parse_line(config, str);
       free(str);
     }

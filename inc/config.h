@@ -5,7 +5,7 @@
 ** Login   <romain.pillot@epitech.net>
 ** 
 ** Started on  Mon May 22 16:07:46 2017 romain pillot
-** Last update Tue May 30 14:17:52 2017 romain pillot
+** Last update Tue May 30 19:33:13 2017 romain pillot
 */
 
 #ifndef CONFIG_H_
@@ -16,6 +16,7 @@
 
 # define KEY_SEPARATOR		('.')
 # define VALUE_SEPARATOR	(':')
+# define VALUE_SEPARATOR_STRING	(":")
 # define ARRAY_SEPARATOR	(',')
 
 typedef enum	e_keytype
