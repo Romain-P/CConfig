@@ -15,6 +15,9 @@ Simple config parser. Follows Epitech Norm (except the main example).
     objects.b.name: test2
     objects.b.valid: yes
     objects.b.age: -1
+    
+    lists.int: 1,3,4,5
+    lists.string: foo,bar,hello word
 
 **main.c**  
 
