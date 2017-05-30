@@ -5,7 +5,7 @@
 ** Login   <romain.pillot@epitech.net>
 ** 
 ** Started on  Sun May 28 04:05:26 2017 romain pillot
-** Last update Sun May 28 21:21:37 2017 romain pillot
+** Last update Tue May 30 20:32:43 2017 romain pillot
 */
 
 #include <stdlib.h>
@@ -23,6 +23,7 @@ t_key	*key_resolve(t_array *array, const char *path)
   if (!(key = key_find(array, keys[0])))
     {
       fprint("key resolver: path not found\n");
+      TAB_FREE(keys);
       return (false);
     }
   i = 0;

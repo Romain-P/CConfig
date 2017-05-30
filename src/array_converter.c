@@ -5,7 +5,7 @@
 ** Login   <romain.pillot@epitech.net>
 ** 
 ** Started on  Tue May 30 11:33:15 2017 romain pillot
-** Last update Tue May 30 14:46:53 2017 romain pillot
+** Last update Tue May 30 20:32:57 2017 romain pillot
 */
 
 #include <stdlib.h>
@@ -22,6 +22,7 @@ bool	parse_array(t_key *key, const char *value)
     return (false);
   split = str_split(str_dupl(value), ARRAY_SEPARATOR);
   elem.type = UNDEFINED;
+  elem.value = NULL;
   parse_value(&elem, split[0]);
   FREE(elem.value);
   key->type = elem.type == INTEGER ? INTEGER_ARRAY :
