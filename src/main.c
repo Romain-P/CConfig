@@ -5,7 +5,7 @@
 ** Login   <romain.pillot@epitech.net>
 ** 
 ** Started on  Mon May 22 14:09:17 2017 romain pillot
-** Last update Sun May 28 18:09:24 2017 romain pillot
+** Last update Tue May 30 14:25:08 2017 romain pillot
 */
 
 #include "config.h"
@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include "util.h"
 #include <stdio.h>
+#include "array.h"
 
 int		main()
 {
@@ -22,6 +23,11 @@ int		main()
   config = config_load("res/template.conf");
   key = get_key(config, "key");
   printf("value: %d\n", keyget_boolean(key, "path.test.bool"));
+  t_array *array = get_string_array(config, "array.string");
+  printf("size: %d\n", array->length);
+  int i = -1;
+  while (array->values[++i])
+    printf("val: %s\n", (char *) array->values[i]);
   config_destroy(config);
   return (0);
 }

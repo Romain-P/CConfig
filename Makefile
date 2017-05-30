@@ -5,7 +5,7 @@
 ## Login   <romain.pillot@epitech.net>
 ## 
 ## Started on  Thu Apr 27 13:48:20 2017 romain pillot
-## Last update Sun May 28 18:09:13 2017 romain pillot
+## Last update Tue May 30 14:37:00 2017 romain pillot
 ##
 
 CC	=	gcc
@@ -23,6 +23,9 @@ SRCS	=	src/main.c		\
 		src/config.c		\
 		src/key.c		\
 		src/array.c		\
+		src/array_converter.c	\
+		src/array_integer.c	\
+		src/array_string.c	\
 		src/free.c		\
 		src/str/str_countchar.c	\
 		src/str/str_split.c	\
@@ -30,11 +33,12 @@ SRCS	=	src/main.c		\
 		src/str/str_length.c	\
 		src/str/str_duplicate.c	\
 		src/str/str_equals.c	\
+		src/str/str_contains.c	\
 		src/nbr/nbr_parsestring.c
 
 OBJS	=	$(SRCS:.c=.o)
 
-CFLAGS	+=	-Iinc -Werror -Wall -Wextra
+CFLAGS	+=	-Iinc -Werror -Wall -Wextra -g
 
 all:	$(NAME)
 

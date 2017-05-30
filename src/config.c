@@ -5,7 +5,7 @@
 ** Login   <romain.pillot@epitech.net>
 ** 
 ** Started on  Tue May 23 13:46:43 2017 romain pillot
-** Last update Sun May 28 16:46:41 2017 romain pillot
+** Last update Tue May 30 14:30:54 2017 romain pillot
 */
 
 #include <fcntl.h>
@@ -39,13 +39,10 @@ static t_key	*apply_strategy(t_key *key, char **keys, int i)
   return (found);
 }
 
-/*
-** TODO: type string array
-*/
-static void	parse_value(t_key *key, const char *value)
+void	parse_value(t_key *key, const char *value)
 {
-  bool		b;
-  int		i;
+  bool	b;
+  int	i;
 
   b = false;
   if ((b = str_equals(value, "yes")) || str_equals(value, "no") ||
@@ -59,12 +56,17 @@ static void	parse_value(t_key *key, const char *value)
   while (value[++i])
     if (value[i] != '-' && !(value[i] >= '0' && value[i] <= '9'))
       {
+	if (parse_array(key, value))
+	  return ;
 	key->type = STRING;
 	key->value = str_dupl(value);
 	return ;
       }
-  key->type = INTEGER;
-  key->integer = nbr_parsestring(value);
+  if (key->type == UNDEFINED)
+    {
+      key->type = INTEGER;
+      key->integer = nbr_parsestring(value);
+    }
 }
 
 static void	parse_line(t_config *config, const char *str)
